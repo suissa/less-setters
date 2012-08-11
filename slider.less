@@ -1,0 +1,76 @@
+@import url("sets.less");
+/*	Variables	*/
+
+/*	Range Variables 	*/
+@slider-back-image: -webkit-linear-gradient( rgba(0,0,0,0.2), rgba(0,0,0,0) );
+@slider-back-gradient: rgba( 0,0,0,0.1 );
+@slider-box-shadow: 0px 0px 5px 1px orange;
+
+/*	Range Variables 	*/
+@radio-content: "x";
+
+/*	Checkbox Variables 	*/
+@checkbox-content: "✔";
+
+/*	Mixins	*/
+.style-slider-thumb (@width: 100px, @height: 18px, @border-radius: 8px, 
+					@border: 1px solid rgba( 0,0,0,0.3 ), 
+					@box-shadow: 1px 1px 2px rgba( 0,0,0,0.2 ), 
+					@background-color: #999, 
+					@background-image: -webkit-linear-gradient( #999, #666 )) 
+{/* removendo a aparência padrão (Chrome e Safari) */
+    -webkit-appearance: none;
+    /* estilização */
+    .set-width (@width);
+    .set-height (@height);
+    .set-border-radius (@border-radius);
+    border: @border;
+    box-shadow: @box-shadow;
+    background-color: @background-color;
+    background-image: @background-image;
+}
+
+/*	Styles	*/
+section{
+	width: 60%;
+	margin: 0 auto;
+
+	article{
+		border: 1px dashed #666;
+		padding: 20px;
+		margin-top: 40px;
+	}
+}
+	/*	Range		*/
+	input[type=range].stylized-1 {
+		-webkit-appearance: none;
+	    /* estilização */
+	    width: 300px;
+	    height: 6px;
+	    border-radius: 6px;
+	    border: 1px solid rgba( 0,0,0,0.5 );
+	    box-shadow: 1px 1px 0px white;
+	    background-color: @slider-back-gradient;
+	    background-image: @slider-back-image;
+	}
+	input[type=range].stylized-2::-webkit-slider-thumb {
+	    .style-slider-thumb;
+	}
+	input[type=range].stylized-2:focus {
+	    outline: none;
+	}
+
+	input[type=range].stylized-2::-webkit-slider-thumb {
+	    outline: none;
+	    box-shadow: @slider-box-shadow;
+	}
+
+	input[type=range].stylized-2::-webkit-slider-thumb:hover {
+	    background-image: none;
+	    background-color: #777;
+	}
+
+	input[type=range].stylized-2::-webkit-slider-thumb:active {
+	    background-image: none;
+	    background-color: #555;
+	}
