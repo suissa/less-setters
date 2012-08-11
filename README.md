@@ -1,1 +1,1 @@
-#Examples with LESS
+#LESS setters
